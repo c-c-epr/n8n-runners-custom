@@ -1,5 +1,12 @@
 ARG N8N_VERSION=latest
 FROM n8nio/runners:${N8N_VERSION}
+
+LABEL org.opencontainers.image.title="n8n-custom-runner"
+LABEL org.opencontainers.image.description DESCRIPTION
+LABEL org.opencontainers.image.source="https://github.com/c-c-epr/n8n-runners-custom"
+LABEL org.opencontainers.image.licenses="MIT"
+
+
 USER root
 COPY requirements.txt /requirements.txt
 RUN cd /opt/runners/task-runner-javascript && pnpm add moment uuid

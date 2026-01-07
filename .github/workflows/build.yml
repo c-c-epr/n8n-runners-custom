@@ -67,7 +67,13 @@ jobs:
           tags: |
             ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ inputs.tag_name || 'latest' }}
             ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.sha.outputs.short }}
-
+          outputs: >
+            type=image,
+            name=target,
+            annotation-index.org.opencontainers.image.title=n8n-custom-runner,
+            annotation-index.org.opencontainers.image.description=Custom n8n runner image,
+            annotation-index.org.opencontainers.image.source=https://github.com/${{ env.REGISTRY }}/${{ env.IMAGE_NAME }},
+            annotation-index.org.opencontainers.image.licenses=MIT
       - name: ✅Output result
         run: |
           echo "✅ Image built:"
