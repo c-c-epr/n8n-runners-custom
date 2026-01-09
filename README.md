@@ -2,7 +2,10 @@
 
 **方便的打包客製化 n8n runners 工具**
 
-[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/c-c-epr/n8n-runners-custom)
+![GitHub License](https://img.shields.io/github/license/c-c-epr/n8n-runners-custom)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/w/c-c-epr/n8n-runners-custom)
+[![Code Style:Prettier](https://img.shields.io/badge/Code_Style-Prettier-ff69b4)](https://github.com/prettier/prettier)
 
 ## ⭐ 特色
 
