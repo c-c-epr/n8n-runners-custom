@@ -36,7 +36,7 @@ Python Package：numpy、pandas
 
 ## ⚠️ 注意事項
 
-- 目前不支援 JS Package 安裝，但尚未移除程式碼安裝 `uuid` 和 `moment` 的部分，若有安全需求，請自行移除。
+- ~~目前不支援 JS Package 安裝，但尚未移除程式碼安裝 `uuid` 和 `moment` 的部分，若有安全需求，請自行移除。~~(已暫時停用)
 - 目前`N8N_RUNNERS_STDLIB_ALLOW`和`N8N_RUNNERS_EXTERNAL_ALLOW`為`*`，若有開放其他使用者使用N8N，務必注意授權問題。
 
 ## 🚗 開發進度
