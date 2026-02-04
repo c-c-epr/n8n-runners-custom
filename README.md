@@ -21,7 +21,7 @@
 
 ## ⚠️ 安全問題
 
-多人共用時，可能會有非預期行為，詳見 [SECURITY.md](./docs/SECURITY.md)
+多人共用時，可能會有非預期行為，詳見 [env-set.md](./docs/env-set.md)
 
 ## 🚗 開發進度
 
