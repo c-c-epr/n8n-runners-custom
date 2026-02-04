@@ -9,12 +9,20 @@ LABEL org.opencontainers.image.licenses="MIT"
 
 USER root
 
+# ---------- Python runner ----------
 COPY requirements.txt /requirements.txt
-RUN cd /opt/runners/task-runner-python && uv pip install -r /requirements.txt
-RUN rm /requirements.txt
+RUN cd /opt/runners/task-runner-python \
+ && uv pip install -r /requirements.txt \
+ && rm /requirements.txt
 
-# RUN cd /opt/runners/task-runner-javascript && pnpm add moment uuid
+# ---------- JavaScript runner ----------
+COPY package.json /opt/runners/task-runner-javascript/package.json
+COPY pnpm-lock.yaml /opt/runners/task-runner-javascript/pnpm-lock.yaml
 
+RUN cd /opt/runners/task-runner-javascript \
+ && pnpm install --prod
+
+# ---------- n8n config ----------
 COPY n8n-task-runners.json /etc/n8n-task-runners.json
 
 USER runner

@@ -4,8 +4,8 @@
 
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/c-c-epr/n8n-runners-custom)
 ![GitHub License](https://img.shields.io/github/license/c-c-epr/n8n-runners-custom)
-![GitHub commit activity](https://img.shields.io/github/commit-activity/w/c-c-epr/n8n-runners-custom)
-[![Code Style:Prettier](https://img.shields.io/badge/Code_Style-Prettier-ff69b4)](https://github.com/prettier/prettier)
+![GitHub Commit Activity](https://img.shields.io/github/commit-activity/w/c-c-epr/n8n-runners-custom)
+[![Code Style: Prettier](https://img.shields.io/badge/Code_Style-Prettier-ff69b4)](https://github.com/prettier/prettier)
 
 ## ⭐ 特色
 
@@ -13,39 +13,44 @@
 - 可指定 N8N Runners 版本
 - 完全支援 GitHub Action
 
-## 🪧 範例
-
-Image 地址：`ghcr.io/c-c-epr/n8n-runners-custom:demo`
-
-n8n Runners Version：2.2.3
-
-Python Package：numpy、pandas
-
-> [!IMPORTANT]
->
-> 此 Image 僅供測試使用，可能會未經通知而調整內容。
-
 ## 🏗️ 使用步驟
 
-1. Fork 這個專案
-2. 修改 `requirements.txt`
+1. 複製這個專案(以下方法二擇一)
+   - Fork
+     1. Fork 這個專案
+   - Template
+     1. Use This Template
+     2. Create a new repository
+2. 安裝 Package
+   - Python
+     1. 修改 `requirements.txt`
+   - JS
+     1. 使用指令`pnpm install <Package_Name>`
 3. 儲存並上傳 commit
 4. 進入 Fork 後的位置
 5. 選擇「Actions」->「I understand my workflows, go ahead and enable them」
 6. 「Build n8n Custom Runner Image」->「run workflow」(可指定版本，預設 latest )
 7. 進入Action紀錄，在`✅Output result`會列出image地址，如`ghcr.io/{username}/n8n-runners-custom:XXXXXXX`
-8. 或可直接使用`ghcr.io/{username}/n8n-runners-custom:latest`
 
 ## ⚠️ 注意事項
 
-- ~~目前不支援 JS Package 安裝，但尚未移除程式碼安裝 `uuid` 和 `moment` 的部分，若有安全需求，請自行移除。~~(已暫時停用)
-- 目前`N8N_RUNNERS_STDLIB_ALLOW`和`N8N_RUNNERS_EXTERNAL_ALLOW`為`*`，若有開放其他使用者使用N8N，務必注意授權問題。
+- 目前以下環境變數皆為為`*`，若有開放其他使用者使用N8N，務必注意授權問題
+  - `NODE_FUNCTION_ALLOW_BUILTIN`
+  - `NODE_FUNCTION_ALLOW_EXTERNAL`
+  - `N8N_RUNNERS_STDLIB_ALLOW`
+  - `N8N_RUNNERS_EXTERNAL_ALLOW`
 
 ## 🚗 開發進度
 
+### Python
+
 - [x] Python Package 自動安裝
 - [ ] 自動根據 `requirements.txt` 產生允許使用的 Package 環境變數
-- [ ] JS Package 自動安裝
+
+### JS
+
+- [x] JS Package 自動安裝
+- [ ] 自動根據 `package.json` 產生允許使用的 Package 環境變數
 
 ## 📄 授權許可
 

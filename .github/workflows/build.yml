@@ -2,7 +2,8 @@ name: Build n8n Custom Runner Image
 
 on:
   push:
-    branches: ["main"]
+    branches:
+      - "**"
   workflow_dispatch:
     inputs:
       n8n_version:
@@ -40,22 +41,28 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Prepare optional files
+      # -----------------------
+      # 設定 branch / main / latest tags
+      # -----------------------
+      - name: Set image tags
+        id: tag
         run: |
-          # requirements.txt 不存在就給空的
-          if [ ! -f requirements.txt ]; then
-            echo "# empty" > requirements.txt
+          TAGS=""
+
+          if [ -n "${{ inputs.tag_name }}" ]; then
+            TAGS="${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ inputs.tag_name }}"
+          elif [ "${GITHUB_REF_NAME}" = "main" ]; then
+            TAGS="${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:main
+          ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest"
+
+          else
+            BRANCH_TAG=$(echo "${GITHUB_REF_NAME}" | tr '/' '-')
+            TAGS="${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${BRANCH_TAG}"
           fi
 
-          # n8n-task-runners.json 不存在就給預設
-          if [ ! -f n8n-task-runners.json ]; then
-            mkdir -p .n8n
-            echo '{}' > n8n-task-runners.json
-          fi
-
-      - name: Extract short SHA
-        id: sha
-        run: echo "short=${GITHUB_SHA::7}" >> $GITHUB_OUTPUT
+          echo "tags<<EOF" >> $GITHUB_OUTPUT
+          echo "$TAGS" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
 
       - name: Build and push image
         uses: docker/build-push-action@v5
@@ -65,8 +72,7 @@ jobs:
           build-args: |
             N8N_VERSION=${{ inputs.n8n_version || 'latest' }}
           tags: |
-            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ inputs.tag_name || 'latest' }}
-            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.sha.outputs.short }}
+            ${{ steps.tag.outputs.tags }}
           outputs: >
             type=image,
             name=target,
@@ -74,7 +80,27 @@ jobs:
             annotation-index.org.opencontainers.image.description=Custom n8n runner image,
             annotation-index.org.opencontainers.image.source=https://github.com/${{ env.REGISTRY }}/${{ env.IMAGE_NAME }},
             annotation-index.org.opencontainers.image.licenses=MIT
+
+      - name: Install crane
+        run: |
+          curl -sSL https://github.com/google/go-containerregistry/releases/latest/download/go-containerregistry_Linux_x86_64.tar.gz \
+          | tar -xz crane
+          sudo mv crane /usr/local/bin/
+
+      - name: Tag image by digest
+        run: |
+          SOURCE_TAG=$(echo "${{ steps.tag.outputs.tags }}" | head -n 1)
+          DIGEST=$(crane digest "$SOURCE_TAG")
+          DIGEST_TAG=$(echo "$DIGEST" | sed 's/^sha256://' | cut -c1-12)
+
+          crane tag \
+            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}@${DIGEST} \
+            digest-${DIGEST_TAG}
+
+          echo "DIGEST_TAG=digest-${DIGEST_TAG}" >> $GITHUB_ENV
+
       - name: ✅Output result
         run: |
-          echo "✅ Image built:"
-          echo "${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.sha.outputs.short }}"
+          echo "✅ Image tags built:"
+          echo "${{ steps.tag.outputs.tags }}"
+          echo "${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${DIGEST_TAG}"

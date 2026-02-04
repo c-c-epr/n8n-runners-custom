@@ -1,0 +1,261 @@
+{
+  "repo_notes": [
+    {
+      "content": ""
+    }
+  ],
+  "pages": [
+    {
+      "title": "Overview",
+      "purpose": "Introduce the n8n-runners-custom repository, explaining its purpose as a tool for building customized n8n runner Docker images with Python dependencies",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Quick Start Guide",
+      "purpose": "Provide step-by-step instructions for forking the repo, customizing requirements.txt, triggering the build workflow, and deploying the resulting image",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Architecture",
+      "purpose": "Explain the high-level system architecture, including how configuration files, build processes, and runtime components interact",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Task Runner Configuration System",
+      "purpose": "Detail how n8n-task-runners.json defines JavaScript and Python runner execution environments, including commands, arguments, and security settings",
+      "parent": "Architecture",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Build Pipeline Architecture",
+      "purpose": "Explain the GitHub Actions workflow that orchestrates Docker image building, including triggers, inputs, and publishing to GHCR",
+      "parent": "Architecture",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Runtime Image Structure",
+      "purpose": "Describe the file system layout, installed components, and runtime configuration within the custom runner Docker image",
+      "parent": "Architecture",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Configuration Reference",
+      "purpose": "Provide comprehensive reference documentation for all configuration files used to customize runner behavior and build process",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Task Runner Configuration (n8n-task-runners.json)",
+      "purpose": "Document all fields in n8n-task-runners.json including runner-type, command, args, health-check-server-port, allowed-env, and env-overrides",
+      "parent": "Configuration Reference",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Python Dependencies (requirements.txt)",
+      "purpose": "Explain how to specify Python packages in requirements.txt, including version pinning syntax and best practices",
+      "parent": "Configuration Reference",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Build Workflow Configuration",
+      "purpose": "Document the GitHub Actions workflow inputs (n8n_version, tag_name), triggers, and build steps",
+      "parent": "Configuration Reference",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Dockerfile Reference",
+      "purpose": "Explain the Dockerfile structure, base image selection, dependency installation process, and user privilege model",
+      "parent": "Configuration Reference",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Security Guide",
+      "purpose": "Cover security considerations for both JavaScript and Python runners, including permission models and environment variable filtering",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "JavaScript Runtime Security",
+      "purpose": "Detail the restrictive security model for JavaScript runners including code generation restrictions, prototype pollution prevention, and empty allow lists",
+      "parent": "Security Guide",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Python Runtime Security",
+      "purpose": "Explain the permissive Python runner security model with wildcard permissions and discuss multi-user deployment risks",
+      "parent": "Security Guide",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Environment Variable Security",
+      "purpose": "Document the environment variable whitelisting and override mechanisms that control what variables reach runner processes",
+      "parent": "Security Guide",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Operations Guide",
+      "purpose": "Provide operational guidance for building, deploying, and monitoring custom n8n runner images in production",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Building Custom Images",
+      "purpose": "Walk through the complete process of customizing and building runner images, from forking to deploying",
+      "parent": "Operations Guide",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Health Monitoring",
+      "purpose": "Explain the health check server architecture, ports, and how to monitor runner availability and status",
+      "parent": "Operations Guide",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Advanced Topics",
+      "purpose": "Cover advanced customization scenarios, limitations, and troubleshooting for power users",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "JavaScript Dependency Customization",
+      "purpose": "Discuss the current limitations of JavaScript package installation and the disabled uuid/moment code in the Dockerfile",
+      "parent": "Advanced Topics",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Multi-User Deployment",
+      "purpose": "Address security considerations and authorization concerns when deploying custom runners in multi-user n8n instances",
+      "parent": "Advanced Topics",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Troubleshooting",
+      "purpose": "Provide solutions for common issues with building, deploying, and running custom n8n runner images",
+      "parent": "Advanced Topics",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Reference",
+      "purpose": "Provide quick reference tables and lists for environment variables, ports, and licensing information",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Environment Variables",
+      "purpose": "List all environment variables used by JavaScript and Python runners, including their purposes and allowed values",
+      "parent": "Reference",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Ports and Endpoints",
+      "purpose": "Document the health check server ports (5681 for JavaScript, 5682 for Python) and their purposes",
+      "parent": "Reference",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "License",
+      "purpose": "Present the MIT license terms under which the n8n-runners-custom project is distributed",
+      "parent": "Reference",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    }
+  ]
+}
