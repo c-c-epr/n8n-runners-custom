@@ -1,5 +1,7 @@
 # Prompt
 
+修改下面兩個Package列表後，再複製給AI。
+
 ```text
 我要使用一個在GitHub上，可以打包自定義版本 n8n runners 的工具。
 專案的地址是 https://github.com/c-c-epr/n8n-runners-custom

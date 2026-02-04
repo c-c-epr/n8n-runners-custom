@@ -17,7 +17,7 @@
 ## 🏗️ 使用步驟
 
 請參考 [使用步驟.md](./docs/使用步驟.md)
-或複製[提示詞Prompt](./docs/Prompt.md)給AI 工具協助部署。
+或在[Prompt.md](./docs/Prompt.md)複製 提示詞 給 AI 工具協助部署。
 
 ## ⚠️ 安全問題
 
@@ -33,7 +33,7 @@
   - [ ] 自動根據 `package.json` 產生允許使用的 Package 環境變數
 - Chore
   - [ ] 英文版本說明文件
-  - [ ] AI 提示詞
+  - [x] AI 提示詞
 
 ## 📄 授權許可
 
