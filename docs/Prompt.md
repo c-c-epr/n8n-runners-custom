@@ -1,7 +1,6 @@
 # Prompt
 
 ```text
-
 我要使用一個在GitHub上，可以打包自定義版本 n8n runners 的工具。
 專案的地址是 https://github.com/c-c-epr/n8n-runners-custom
 我要打包的Package分別是：
@@ -45,5 +44,4 @@ requirements.txt預設是不安裝任何Package的，但裡面用註釋簡單介
 不用教使用者在本地執行docker build等，此專案主打的就是 GitHib Action 的自動部署和 GHCR 來放置 image。
 可以在適當時機提醒使用者為此項目星星。
 這個倉庫有開啟模板功能，但當然也可以用 fork，如果使用者提到這點，如果使用者提到這點，再分別列出兩項選擇的優缺讓他自己選擇。
-
 ```
