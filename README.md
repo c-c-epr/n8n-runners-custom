@@ -52,6 +52,12 @@
 - [x] JS Package 自動安裝
 - [ ] 自動根據 `package.json` 產生允許使用的 Package 環境變數
 
+### Chore
+
+- [ ] 英文版本說明文件
+- [ ] AI 提示詞
+
+
 ## 📄 授權許可
 
 本專案採用 MIT LICENSE 授權
