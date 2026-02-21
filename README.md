@@ -2,7 +2,7 @@
 
 方便的打包客製化 n8n runners 工具
 
-[![Ask DeepWiki][]][DeepWiki]
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/c-c-epr/n8n-runners-custom)
 ![GitHub License][]
 ![GitHub Commit Activity][]
 [![Code Style: Prettier][]][Prettier@GitHub]
@@ -41,8 +41,7 @@
 
 <!-- 網址們 -->
 
-[Ask DeepWiki]: https://deepwiki.com/badge.svg
-[DeepWiki]: https://deepwiki.com/c-c-epr/n8n-runners-custom
+
 [GitHub License]: https://img.shields.io/github/license/c-c-epr/n8n-runners-custom
 [GitHub Commit Activity]: https://img.shields.io/github/commit-activity/w/c-c-epr/n8n-runners-custom
 [Code Style: Prettier]: https://img.shields.io/badge/Code_Style-Prettier-ff69b4
