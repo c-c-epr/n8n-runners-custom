@@ -12,8 +12,8 @@ importers:
         specifier: 8.14.0
         version: 8.14.0
       acorn-walk:
-        specifier: 8.3.4
-        version: 8.3.4
+        specifier: 8.3.5
+        version: 8.3.5
       moment:
         specifier: 2.30.1
         version: 2.30.1
@@ -23,8 +23,8 @@ importers:
 
 packages:
 
-  acorn-walk@8.3.4:
-    resolution: {integrity: sha512-ueEepnujpqee2o5aIYnvHU6C0A42MNdsIDeqy5BydrkuC5R1ZuUFnm27EeFJGoEHJQgn3uleRvmTXaJgfXbt4g==}
+  acorn-walk@8.3.5:
+    resolution: {integrity: sha512-HEHNfbars9v4pgpW6SO1KSPkfoS0xVOM/9UzkJltjlsHZmJasxg8aXkuZa7SMf8vKGIBhpUsPluQSqhJFCqebw==}
     engines: {node: '>=0.4.0'}
 
   acorn@8.14.0:
@@ -49,7 +49,7 @@ packages:
 
 snapshots:
 
-  acorn-walk@8.3.4:
+  acorn-walk@8.3.5:
     dependencies:
       acorn: 8.14.0
 
